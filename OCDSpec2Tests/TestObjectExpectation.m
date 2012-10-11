@@ -16,10 +16,6 @@
   reporter = [[OCDSFakeFailureReporter alloc] init];
 }
 
-- (void) tearDown {
-  [reporter release];
-}
-
 - (void) testToBeEqualToPass {
   [[[OCDSObjectExpectation expectationInFile:"file1" line:2 failureReporter:reporter] withObject]
    (@"a") toBeEqualTo: @"a"];
@@ -33,7 +29,7 @@
 }
 
 - (void) testToBePass {
-  id a = [[[NSObject alloc] init] autorelease];
+  id a = [[NSObject alloc] init];
   
   [[[OCDSObjectExpectation expectationInFile:"file1" line:2 failureReporter:reporter] withObject]
    (a) toBe: a];

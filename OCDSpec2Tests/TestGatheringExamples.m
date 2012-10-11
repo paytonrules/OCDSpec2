@@ -9,7 +9,7 @@
 @implementation TestGatheringExamples
 
 - (void) testContextGatherExamples {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
   __block int proofBlockGetsCalled = 0;
   
@@ -37,7 +37,7 @@
 }
 
 - (void) testDefaultBeforeAfterEachBlocks {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
   [ctx _functionForDescribeBlock](@"hi", ^{});
   
@@ -48,7 +48,7 @@
 }
 
 - (void) testSettingBeforeAfterEachBlocks {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
   id beforeEachBlock = ^{};
   id afterEachBlock = ^{};

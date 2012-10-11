@@ -4,7 +4,7 @@
 
 @interface OCDSFloatExpectation : OCDSExpectation
 
-@property (readwrite, assign) double number;
+@property (readwrite) double number;
 
 - (OCDSFloatExpectation*(^)(double)) withFloat;
 

@@ -4,7 +4,7 @@
 
 @interface OCDSBlockExpectation : OCDSExpectation
 
-@property (readwrite, assign) void(^block)(void);
+@property (readwrite, weak) void(^block)(void);
 
 - (OCDSBlockExpectation*(^)(void(^)(void))) withBlock;
 

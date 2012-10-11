@@ -4,6 +4,8 @@
 #import "OCDSBlockExpectation.h"
 #import "OCDSFakeFailureReporter.h"
 
+#import "OCDSFakeFailure.h"
+
 #import "SenTestCase+ReportingHelper.h"
 
 @interface TestBlockExpectation : SenTestCase {
@@ -14,10 +16,6 @@
 
 - (void) setUp {
   reporter = [[OCDSFakeFailureReporter alloc] init];
-}
-
-- (void) tearDown {
-  [reporter release];
 }
 
 - (void) testToNotRaiseExceptionPass {

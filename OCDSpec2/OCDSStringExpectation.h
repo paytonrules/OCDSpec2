@@ -4,7 +4,7 @@
 
 @interface OCDSStringExpectation : OCDSExpectation
 
-@property (readwrite, assign) NSString* string;
+@property (readwrite, weak) NSString* string;
 
 - (OCDSStringExpectation*(^)(NSString*)) withString;
 

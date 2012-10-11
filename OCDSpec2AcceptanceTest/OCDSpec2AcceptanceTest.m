@@ -17,7 +17,7 @@ extern int SamplePreludeRunCount;
   [[pipe fileHandleForWriting] closeFile];
   
   NSData *stderrData = [[pipe fileHandleForReading] readDataToEndOfFile];
-  NSString *stderrOutput = [[[NSString alloc] initWithData:stderrData encoding:NSUTF8StringEncoding] autorelease];
+  NSString *stderrOutput = [[NSString alloc] initWithData:stderrData encoding:NSUTF8StringEncoding];
   
   NSString *file = [NSString stringWithFormat:@"%s/AcceptanceTestSpec.m", dirname(__FILE__)];
   

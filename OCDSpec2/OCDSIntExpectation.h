@@ -4,7 +4,7 @@
 
 @interface OCDSIntExpectation : OCDSExpectation
 
-@property (readwrite, assign) long long number;
+@property (readwrite) long long number;
 
 - (OCDSIntExpectation*(^)(long long)) withInt;
 

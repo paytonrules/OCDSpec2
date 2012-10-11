@@ -4,7 +4,7 @@
 
 @interface OCDSFakeFailureReporter : NSObject <OCDSFailureReporter>
 
-@property (assign) NSArray* failureReports;
-@property (assign) NSArray* warningReports;
+@property (weak) NSArray* failureReports;
+@property (weak) NSArray* warningReports;
 
 @end

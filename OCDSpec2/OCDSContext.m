@@ -12,23 +12,16 @@ int OCDSpec2RunAllTests() {
 
 @implementation OCDSContext
 
-- (void) dealloc {
-  self.reportOutputFile = nil;
-  self.topLevelDescription = nil;
-  
-  [super dealloc];
-}
-
 + (int) runAllTestsUsingOutput:(NSFileHandle*)outputFile {
   int errorCount = 0;
   
   for (Class runnerClass in [self preludeClasses]) {
-    id<OCDSPrelude> runner = [[[runnerClass alloc] init] autorelease];
+    id<OCDSPrelude> runner = [[runnerClass alloc] init];
     [runner run];
   }
   
   for (Class contextClass in [self contextClasses]) {
-    OCDSContext *ctx = [[[contextClass alloc] init] autorelease];
+    OCDSContext *ctx = [[contextClass alloc] init];
     ctx.reportOutputFile = outputFile;
     
     [ctx gatherExamples];
@@ -95,7 +88,7 @@ int OCDSpec2RunAllTests() {
 
 - (id) init {
   if ((self = [super init])) {
-    self.topLevelDescription = [[[OCDSDescription alloc] init] autorelease];
+    self.topLevelDescription = [[OCDSDescription alloc] init];
     self.topLevelDescription.name = @"Top level";
     
     self.currentDescription = self.topLevelDescription;
@@ -104,20 +97,20 @@ int OCDSpec2RunAllTests() {
 }
 
 - (void(^)(NSString*, void(^)(void))) _functionForDescribeBlock {
-  return [[^(NSString* name, void(^blk)(void)) {
-    OCDSDescription *desc = [[[OCDSDescription alloc] init] autorelease];
+  return ^(NSString* name, void(^blk)(void)) {
+    OCDSDescription *desc = [[OCDSDescription alloc] init];
     desc.name = name;
     self.currentDescription.subDescriptions = [[NSArray arrayWithArray:self.currentDescription.subDescriptions] arrayByAddingObject:desc];
     
     self.currentDescription = desc;
     
     blk();
-  } copy] autorelease];
+  };
 }
 
 - (void(^)(NSString*, void(^)(void))) _functionForExampleBlockInFile:(char*)inFile atLine:(int)atLine {
-  return [[^(NSString* name, void(^blk)(void)) {
-    OCDSExample *ex = [[[OCDSExample alloc] init] autorelease];
+  return ^(NSString* name, void(^blk)(void)) {
+    OCDSExample *ex = [[OCDSExample alloc] init];
     ex.name = name;
     ex.block = ^{
       [[[OCDSBlockExpectation expectationInFile:inFile
@@ -125,19 +118,19 @@ int OCDSpec2RunAllTests() {
                               failureReporter:self] withBlock](blk) toNotRaiseException];
     };
     self.currentDescription.examples = [[NSArray arrayWithArray:self.currentDescription.examples] arrayByAddingObject:ex];
-  } copy] autorelease];
+  };
 }
 
 - (void(^)(void(^)(void))) _functionForBeforeEachBlock {
-  return [[^(void(^blk)(void)) {
+  return ^(void(^blk)(void)) {
     self.currentDescription.beforeEachBlock = blk;
-  } copy] autorelease];
+  };
 }
 
 - (void(^)(void(^)(void))) _functionForAfterEachBlock {
-  return [[^(void(^blk)(void)) {
+  return ^(void(^blk)(void)) {
     self.currentDescription.afterEachBlock = blk;
-  } copy] autorelease];
+  };
 }
 
 - (void) reportFailure:(NSString*)msg inFile:(NSString*)file atLine:(int)line {

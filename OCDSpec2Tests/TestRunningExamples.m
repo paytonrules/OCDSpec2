@@ -9,17 +9,17 @@
 @implementation TestRunningExamples
 
 - (void) testRunningExamples {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
-  OCDSDescription *desc1 = [[[OCDSDescription alloc] init] autorelease];
-  OCDSDescription *desc2 = [[[OCDSDescription alloc] init] autorelease];
+  OCDSDescription *desc1 = [[OCDSDescription alloc] init];
+  OCDSDescription *desc2 = [[OCDSDescription alloc] init];
   
   NSMutableString *counter = [NSMutableString string];
   
-  OCDSExample *example1 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example2 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example3 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example4 = [[[OCDSExample alloc] init] autorelease];
+  OCDSExample *example1 = [[OCDSExample alloc] init];
+  OCDSExample *example2 = [[OCDSExample alloc] init];
+  OCDSExample *example3 = [[OCDSExample alloc] init];
+  OCDSExample *example4 = [[OCDSExample alloc] init];
   
   example1.block = ^{
     [counter appendString:@"1"];
@@ -48,10 +48,10 @@
 }
 
 - (void) testRunningBeforeEach {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
-  OCDSDescription *desc1 = [[[OCDSDescription alloc] init] autorelease];
-  OCDSDescription *desc2 = [[[OCDSDescription alloc] init] autorelease];
+  OCDSDescription *desc1 = [[OCDSDescription alloc] init];
+  OCDSDescription *desc2 = [[OCDSDescription alloc] init];
   
   NSMutableString *counter = [NSMutableString string];
   
@@ -59,10 +59,10 @@
     [counter appendString:@"["];
   };
   
-  OCDSExample *example1 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example2 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example3 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example4 = [[[OCDSExample alloc] init] autorelease];
+  OCDSExample *example1 = [[OCDSExample alloc] init];
+  OCDSExample *example2 = [[OCDSExample alloc] init];
+  OCDSExample *example3 = [[OCDSExample alloc] init];
+  OCDSExample *example4 = [[OCDSExample alloc] init];
   
   example1.block = ^{
     [counter appendString:@"1"];
@@ -91,10 +91,10 @@
 }
 
 - (void) testRunningAfterEach {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
-  OCDSDescription *desc1 = [[[OCDSDescription alloc] init] autorelease];
-  OCDSDescription *desc2 = [[[OCDSDescription alloc] init] autorelease];
+  OCDSDescription *desc1 = [[OCDSDescription alloc] init];
+  OCDSDescription *desc2 = [[OCDSDescription alloc] init];
   
   NSMutableString *counter = [NSMutableString string];
   
@@ -102,10 +102,10 @@
     [counter appendString:@"]"];
   };
   
-  OCDSExample *example1 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example2 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example3 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example4 = [[[OCDSExample alloc] init] autorelease];
+  OCDSExample *example1 = [[OCDSExample alloc] init];
+  OCDSExample *example2 = [[OCDSExample alloc] init];
+  OCDSExample *example3 = [[OCDSExample alloc] init];
+  OCDSExample *example4 = [[OCDSExample alloc] init];
   
   example1.block = ^{
     [counter appendString:@"1"];
@@ -134,10 +134,10 @@
 }
 
 - (void) testRunningBeforeAndAfterEach {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
-  OCDSDescription *desc1 = [[[OCDSDescription alloc] init] autorelease];
-  OCDSDescription *desc2 = [[[OCDSDescription alloc] init] autorelease];
+  OCDSDescription *desc1 = [[OCDSDescription alloc] init];
+  OCDSDescription *desc2 = [[OCDSDescription alloc] init];
   
   NSMutableString *counter = [NSMutableString string];
   
@@ -149,10 +149,10 @@
     [counter appendString:@"]"];
   };
   
-  OCDSExample *example1 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example2 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example3 = [[[OCDSExample alloc] init] autorelease];
-  OCDSExample *example4 = [[[OCDSExample alloc] init] autorelease];
+  OCDSExample *example1 = [[OCDSExample alloc] init];
+  OCDSExample *example2 = [[OCDSExample alloc] init];
+  OCDSExample *example3 = [[OCDSExample alloc] init];
+  OCDSExample *example4 = [[OCDSExample alloc] init];
   
   example1.block = ^{
     [counter appendString:@"1"];

@@ -7,11 +7,11 @@ int OCDSpec2RunAllTests();
 
 @interface OCDSContext : NSObject <OCDSFailureReporter>
 
-@property (readwrite, retain) OCDSDescription *topLevelDescription;
-@property (readwrite, assign) OCDSDescription *currentDescription;
+@property (readwrite, strong) OCDSDescription *topLevelDescription;
+@property (readwrite, weak) OCDSDescription *currentDescription;
 
-@property (readwrite, retain) NSFileHandle *reportOutputFile;
-@property (readwrite, assign) int errorCount;
+@property (readwrite, strong) NSFileHandle *reportOutputFile;
+@property (readwrite) int errorCount;
 
 + (int) runAllTestsUsingOutput:(NSFileHandle*)outputFile;
 + (NSArray*) contextClasses;

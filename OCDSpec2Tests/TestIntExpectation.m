@@ -16,10 +16,6 @@
   reporter = [[OCDSFakeFailureReporter alloc] init];
 }
 
-- (void) tearDown {
-  [reporter release];
-}
-
 - (void) testToBeFail {
   [[[OCDSIntExpectation expectationInFile:"file11" line:22 failureReporter:reporter] withInt]
    (2) toBe: 3];

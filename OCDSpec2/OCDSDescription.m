@@ -4,18 +4,6 @@
 
 @implementation OCDSDescription
 
-- (void) dealloc {
-  self.subDescriptions = nil;
-  
-  self.name = nil;
-  self.examples = nil;
-  
-  self.beforeEachBlock = nil;
-  self.afterEachBlock = nil;
-  
-  [super dealloc];
-}
-
 - (void) runAllExamplesWithBeforeBlocks:(NSArray*)beforeBlocks afterBlocks:(NSArray*)afterBlocks {
   if (self.beforeEachBlock)
     beforeBlocks = [beforeBlocks arrayByAddingObject:self.beforeEachBlock];

@@ -16,10 +16,6 @@
   reporter = [[OCDSFakeFailureReporter alloc] init];
 }
 
-- (void) tearDown {
-  [reporter release];
-}
-
 - (void) testToBeWithPrecisionPass {
   [[[OCDSFloatExpectation expectationInFile:"file1" line:2 failureReporter:reporter] withFloat]
    (1.0) toBe: 1.0 withPrecision: 0.0000001];

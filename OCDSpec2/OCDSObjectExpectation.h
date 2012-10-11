@@ -4,7 +4,7 @@
 
 @interface OCDSObjectExpectation : OCDSExpectation
 
-@property (readwrite, assign) id object;
+@property (readwrite, weak) id object;
 
 - (OCDSObjectExpectation*(^)(id)) withObject;
 

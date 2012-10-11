@@ -16,10 +16,6 @@
   reporter = [[OCDSFakeFailureReporter alloc] init];
 }
 
-- (void) tearDown {
-  [reporter release];
-}
-
 - (void) testToContainPass {
   [[[OCDSStringExpectation expectationInFile:"file1" line:2 failureReporter:reporter] withString]
    (@"hello") toContain: @"hell"];

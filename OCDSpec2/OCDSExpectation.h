@@ -4,9 +4,9 @@
 
 @interface OCDSExpectation : NSObject
 
-@property (readwrite, assign) NSString *file;
-@property (readwrite, assign) int line;
-@property (readwrite, assign) id<OCDSFailureReporter> failureReporter;
+@property (readwrite, strong) NSString *file;
+@property (readwrite) int line;
+@property (readwrite, weak) id<OCDSFailureReporter> failureReporter;
 
 + (id) expectationInFile:(char*)someFile
                     line:(int)someLine

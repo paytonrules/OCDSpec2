@@ -2,12 +2,12 @@
 
 @interface OCDSDescription : NSObject
 
-@property (readwrite, retain) NSArray *subDescriptions;
-@property (readwrite, retain) NSString* name;
-@property (readwrite, retain) NSArray *examples;
+@property (readwrite, strong) NSArray *subDescriptions;
+@property (readwrite, strong) NSString* name;
+@property (readwrite, strong) NSArray *examples;
 
-@property (readwrite, copy) void (^beforeEachBlock)(void);
-@property (readwrite, copy) void (^afterEachBlock)(void);
+@property (readwrite, strong) void (^beforeEachBlock)(void);
+@property (readwrite, strong) void (^afterEachBlock)(void);
 
 - (void) runAllExamplesWithBeforeBlocks:(NSArray*)beforeBlocks afterBlocks:(NSArray*)afterBlocks;
 

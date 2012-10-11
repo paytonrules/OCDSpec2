@@ -2,7 +2,7 @@
 
 @interface OCDSExample : NSObject
 
-@property (readwrite, retain) NSString* name;
-@property (readwrite, copy) void(^block)(void);
+@property (readwrite, strong) NSString* name;
+@property (readwrite, strong) void(^block)(void);
 
 @end

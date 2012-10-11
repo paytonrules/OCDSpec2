@@ -2,8 +2,8 @@
 
 @interface OCDSFakeFailure : NSObject
 
-@property (assign) NSString* report;
-@property (assign) NSString* inFile;
+@property (weak) NSString* report;
+@property (weak) NSString* inFile;
 @property int atLine;
 
 @end

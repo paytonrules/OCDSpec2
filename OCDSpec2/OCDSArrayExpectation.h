@@ -4,7 +4,7 @@
 
 @interface OCDSArrayExpectation : OCDSExpectation
 
-@property (readwrite, assign) NSArray* array;
+@property (readwrite, weak) NSArray* array;
 
 - (OCDSArrayExpectation*(^)(NSArray*)) withArray;
 

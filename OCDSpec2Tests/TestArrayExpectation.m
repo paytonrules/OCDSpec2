@@ -17,10 +17,6 @@
   reporter = [[OCDSFakeFailureReporter alloc] init];
 }
 
-- (void) tearDown {
-  [reporter release];
-}
-
 - (void) testToContainPass {
   [[[OCDSArrayExpectation expectationInFile:"file1" line:2 failureReporter:reporter] withArray]
    ([NSArray arrayWithObject:@"a"]) toContain: @"a"];

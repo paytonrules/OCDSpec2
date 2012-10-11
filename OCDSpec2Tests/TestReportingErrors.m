@@ -9,21 +9,21 @@
 - (void) testReportingToOutputFile {
   NSPipe *pipe = [NSPipe pipe];
   
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   ctx.reportOutputFile = [pipe fileHandleForWriting];
   [ctx reportFailure:@"this is\n a test!" inFile:@"file1" atLine:73];
   
   [[pipe fileHandleForWriting] closeFile];
   
   NSFileHandle *handle = [pipe fileHandleForReading];
-  NSString *str = [[[NSString alloc] initWithData:[handle readDataToEndOfFile]
-                                         encoding:NSUTF8StringEncoding] autorelease];
+  NSString *str = [[NSString alloc] initWithData:[handle readDataToEndOfFile]
+                                        encoding:NSUTF8StringEncoding];
   
   STAssertTrue([str isEqualToString: @"file1:73: error: this is\n a test!\n"], nil);
 }
 
 - (void) testKeepingErrorCount {
-  OCDSContext *ctx = [[[OCDSContext alloc] init] autorelease];
+  OCDSContext *ctx = [[OCDSContext alloc] init];
   
   NSPipe *pipe = [NSPipe pipe];
   ctx.reportOutputFile = [pipe fileHandleForWriting];
